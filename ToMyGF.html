@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="C:/Users/G2 D ANYA/Downloads/Muah/R.png">
+    <title>Will You Marry Me?</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti"></script>
+    <style>
+        body {
+            background-image: url('Hello-Kitty.jpg');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            text-align: center;
+            margin: 0; 
+            position: relative; 
+        }
+        h1 {
+            font-size: 3rem; 
+            margin-bottom: 20px; 
+        }
+        button {
+            padding: 15px 30px; 
+            font-size: 20px;  
+            margin: 10px;       
+            cursor: pointer;
+            border: none;
+            border-radius: 10px; 
+            transition: background-color 0.3s, transform 0.3s; 
+        }
+        button:hover {
+            opacity: 0.8; 
+            transform: scale(1.05); 
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Will You Marry Me?</h1>
+        <button class="yes" id="yesbtn" onclick="yesClicked()">Yes ❤️</button>
+        <button class="no" onmousemove="random(this)" onclick="alert('You\'re quick and cruel, did you cheat? 😢')">No 💔</button>
+    </div>
+      <audio id="celebrationAudio" src="thats what i like  tiktok version  for ultimate rizz EDIT AUDIO (2).mp3" preload="auto"></audio>
+
+   
+
+    <script>
+        const WIDTH = document.body.clientWidth;
+        const HEIGHT = document.body.clientHeight;
+        let count = 0;
+
+        function random(nobtn) {
+            nobtn.style.position = "absolute";
+            let randomH = Math.random() * (HEIGHT - 90);
+            let randomW = Math.random() * (WIDTH - 120);
+
+            nobtn.style.top = `${randomH}px`;
+            nobtn.style.left = `${randomW}px`;
+            count++;
+
+            if (count >= 10) {
+                document.getElementById("yesbtn").classList.add("ics");
+                let interval = setInterval(() => {
+                    nobtn.style.opacity = count / 10;
+                    count--;
+                    if (count <= 0) {
+                        nobtn.style.display = "none";
+                        clearInterval(interval);
+                    }
+                }, 100);
+            }
+        }
+
+        function yesClicked() {
+            const audio = document.getElementById("celebrationAudio");
+
+            audio.play(); 
+
+            function fireConfetti() {
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+    }
+
+    // Fire confetti bursts every 500ms for a total of 5 bursts
+    fireConfetti(); // First burst immediately
+    let burstCount = 0;
+    const interval = setInterval(() => {
+        burstCount++;
+        fireConfetti();
+        if (burstCount >= 7) clearInterval(interval); // Stops after 5 bursts
+    }, 500);
+}
+
+    </script>
+</body>
+</html>
